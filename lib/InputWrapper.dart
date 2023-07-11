@@ -11,6 +11,7 @@ class InputWrapper extends StatelessWidget {
     return Scaffold(
         body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
+        // Scaffold keeps keyboard popup on emulator from overflowing do not delete
       child: Column(
         children: <Widget>[
           const SizedBox(height: 40,),
