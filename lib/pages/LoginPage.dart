@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'Header.dart';
-import 'InputWrapper.dart';
+import '../components/Header.dart';
+import '../components/LoginWrapper.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
                     topRight: Radius.circular(60),
                   )
               ),
-              child: InputWrapper(),
+              child: LoginWrapper(),
             ))
           ],
         ),

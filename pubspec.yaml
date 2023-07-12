@@ -28,7 +28,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  mongodb_dart: ^6.0.6 #lay-change this to mongo_dart?
+  crypto: ^3.0.0
+  uuid: ^3.0.0
+  mongo_dart: ^0.9.1
   flutter:
     sdk: flutter
 

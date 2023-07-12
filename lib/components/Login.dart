@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import '../database/Database.dart';
 
-class InputField extends StatelessWidget{
-  const InputField({super.key});
+class Login extends StatelessWidget{
+  static TextEditingController loginController = TextEditingController();
+  static TextEditingController passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +16,13 @@ class InputField extends StatelessWidget{
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
               border: Border(
-                  bottom: BorderSide(color: Colors.grey),
+                bottom: BorderSide(color: Colors.grey),
               )
           ),
-          child: const TextField(
+          child: TextField(
+            controller: loginController,
             decoration: InputDecoration(
-                hintText: "Enter your email",
+                hintText: "username",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none
             ),
@@ -31,9 +35,10 @@ class InputField extends StatelessWidget{
                   bottom: BorderSide(color: Colors.grey)
               )
           ),
-          child: const TextField(
+          child: TextField(
+            controller: passwordController,
             decoration: InputDecoration(
-                hintText: "Enter your password",
+                hintText: "password",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none
             ),
@@ -42,4 +47,8 @@ class InputField extends StatelessWidget{
       ],
     );
   }
+
+  static Future<bool> authUser() {
+    return MongoDB.authenticateUser(loginController.text, passwordController.text);
+}
 }

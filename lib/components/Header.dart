@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//General header, this can be deleted/altered if need be
 class Header extends StatelessWidget{
   const Header({super.key});
 
