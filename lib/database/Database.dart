@@ -42,12 +42,12 @@ class MongoDB {
   //Login Verification
   static Future<bool> authenticateUser(String login, String password) async {
 
-    //final query = where.eq('login', 'jdoe').eq('password', 'COP4331iscool');
+    final query = where.eq('login', 'jdoe').eq('password', 'COP4331iscool');
     final result = await userDB.find('login', 'jdoe');
 
     await db.close();
 
-    return result != null;
+    return result;
   }
 
 
