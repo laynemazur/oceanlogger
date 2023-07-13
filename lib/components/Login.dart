@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../database/Database.dart';
+import '../database/Backend.dart';
 
 class Login extends StatelessWidget{
   static TextEditingController loginController = TextEditingController();
@@ -48,7 +48,8 @@ class Login extends StatelessWidget{
     );
   }
 
-  static Future<bool> authUser() {
-    return MongoDB.authenticateUser(loginController.text, passwordController.text);
+  static Future<String> authUser() {
+    print(ConnectBackend.authenticateUser(loginController.text, passwordController.text)); //test
+    return ConnectBackend.authenticateUser(loginController.text, passwordController.text);
 }
 }

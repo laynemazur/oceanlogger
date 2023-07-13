@@ -31,6 +31,8 @@ dependencies:
   crypto: ^3.0.0
   uuid: ^3.0.0
   mongo_dart: ^0.9.1
+  http: ^1.1.0
+  http_parser: ^4.0.2
   flutter:
     sdk: flutter
 

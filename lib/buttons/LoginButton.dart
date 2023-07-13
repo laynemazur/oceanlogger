@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/HomePage.dart';
 import '../components/Login.dart';
+import 'dart:convert';
 
 class LoginButton extends StatelessWidget {
   @override
@@ -9,9 +10,14 @@ class LoginButton extends StatelessWidget {
       child: ElevatedButton(
         child: Text('Login'),
         onPressed: () async {
-          bool authenticationResult = await Login.authUser();
+          String retError = "";
+          String ret = await Login.authUser();
+          var jsonObject = json.decode(ret);
+          print(jsonObject);
 
-          if (authenticationResult) {
+          retError = jsonObject["error"];
+
+          if (retError == "") {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
@@ -21,7 +27,7 @@ class LoginButton extends StatelessWidget {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text('Error'),
-                content: Text('User/Pass Incorrect'),
+                content: Text(retError),
                 actions: [
                   TextButton(
                     child: Text('OK'),
