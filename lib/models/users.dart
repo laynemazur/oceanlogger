@@ -1,11 +1,12 @@
 import 'package:mongo_dart/mongo_dart.dart';
+//as of 7/14 currently not in use, delete if never used
 
 class User {
   final ObjectId id;
   final String firstName;
   final String lastName;
   final String login;
-  final String password; //work on password hashing
+  final String password;
   final String email;
   final bool verification;
 

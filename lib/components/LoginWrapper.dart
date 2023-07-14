@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../buttons/LoginButton.dart';
 import 'Login.dart';
 
@@ -12,7 +11,7 @@ class LoginWrapper extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
-        // Scaffold keeps keyboard popup on emulator from overflowing do not delete
+        // Scaffold keeps keyboard popup on emulator from overflowing DO NOT DELETE
         child: Column(
           children: <Widget>[
             const SizedBox(height: 40,),
@@ -21,7 +20,7 @@ class LoginWrapper extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
               ),
-              child: Login(),
+              child: Login(), //Contains info for user login, password
             ),
             const SizedBox(height: 40,),
             LoginButton()

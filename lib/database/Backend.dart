@@ -3,9 +3,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ConnectBackend  {
-  // The prints in this file are for debugging, uncomment to see whats going on.
 
   static Future<String> authenticateUser(String login, String password) async {
+    //Takes login and password from user input, returns error if user is not valid.
+    // The prints in this file are for debugging, uncomment to see whats going on.
 
     // Create a URL to the API you want to access.
     var url = Uri.https("oceanlogger-046c28329f84.herokuapp.com", "api/login");
@@ -17,10 +18,10 @@ class ConnectBackend  {
 
     // Body for the POST call.
     final jsonObject = jsonEncode(
-      {
-        "login":"testuser1",
-        "password":"Orange123!"
-      }
+        {
+          "login":login,
+          "password":password
+        }
     );
 
     // print(jsonObject);
@@ -41,11 +42,4 @@ class ConnectBackend  {
 
     return err;
   }
-
-
-
-
-
-
 }
-

@@ -4,7 +4,7 @@ import '../database/Backend.dart';
 class Login extends StatelessWidget{
   static TextEditingController loginController = TextEditingController();
   static TextEditingController passwordController = TextEditingController();
-
+  //TextEditingController takes user input from specified TextField
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +13,7 @@ class Login extends StatelessWidget{
       children: <Widget>[
 
         Container(
+          //login design/textbox
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
               border: Border(
@@ -29,6 +30,7 @@ class Login extends StatelessWidget{
           ),
         ),
         Container(
+          //password design/textbox
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
               border: Border(
@@ -49,7 +51,8 @@ class Login extends StatelessWidget{
   }
 
   static Future<String> authUser() {
-    print(ConnectBackend.authenticateUser(loginController.text, passwordController.text)); //test
+
+    //Validate user with login API from NodeJS
     return ConnectBackend.authenticateUser(loginController.text, passwordController.text);
 }
 }
