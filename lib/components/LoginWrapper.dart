@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../buttons/LoginButton.dart';
+import '../buttons/SignUpButton.dart';
 import 'Login.dart';
 
 //Design for LoginPage, calls Login which performs actions on this page
@@ -23,7 +24,9 @@ class LoginWrapper extends StatelessWidget {
               child: Login(), //Contains info for user login, password
             ),
             const SizedBox(height: 40,),
-            LoginButton()
+            LoginButton(),
+            const SizedBox(height: 40,),
+            SignUpButton()
           ],
         ),
       ),
