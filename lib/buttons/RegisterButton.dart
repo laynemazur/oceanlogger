@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../pages/HomePage.dart';
+import '../components/Register.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});
@@ -10,10 +11,30 @@ class RegisterButton extends StatelessWidget {
       child: ElevatedButton(
         child: Text('Register'),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
+          String ret = await Register.regUser();
+
+          if (ret == "") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Error'),
+                content: Text(ret),
+                actions: [
+                  TextButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close the dialog
+                    },
+                  ),
+                ],
+              ),
+            );
+          }
         },
       ),
     );

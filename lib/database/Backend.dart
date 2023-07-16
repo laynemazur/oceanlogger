@@ -10,9 +10,7 @@ class ConnectBackend  {
 
     // Create a URL to the API you want to access.
     var url = Uri.https("oceanlogger-046c28329f84.herokuapp.com", "api/login");
-
     // print(url);
-
     // Header for the POST call.
     Map<String,String> headers = {'Content-Type': 'application/json'};
 
@@ -23,19 +21,49 @@ class ConnectBackend  {
           "password":password
         }
     );
-
     // print(jsonObject);
-
     // Make the API call.
     var response = await http.post(url, headers:headers,body:jsonObject);
 
     // print(response.statusCode);
     // print(response.body);
-
     // Parse the returned body.
     final retJsonObject = jsonDecode(response.body);
 
     // print(retJsonObject);
+
+    // Returns an empty string for no error, or an error message string.
+    String err = retJsonObject['error'];
+
+    return err;
+  }
+
+  static Future<String> registerUser(String email, String login, String password) async{
+    // Create a URL to the API you want to access.
+    var url = Uri.https("oceanlogger-046c28329f84.herokuapp.com", "api/register");
+
+    print(url);
+    // Header for the POST call.
+    Map<String,String> headers = {'Content-Type': 'application/json'};
+
+    // Body for the POST call.
+    final jsonObject = jsonEncode(
+        {
+          "email":email,
+          "login":login,
+          "password":password
+        }
+    );
+    print(jsonObject);
+    // Make the API call.
+    var response = await http.post(url, headers:headers,body:jsonObject);
+
+    print(response.statusCode);
+    print(response.body);
+    // Parse the returned body.
+    final retJsonObject = jsonDecode(response.body);
+
+    print(retJsonObject);
 
     // Returns an empty string for no error, or an error message string.
     String err = retJsonObject['error'];

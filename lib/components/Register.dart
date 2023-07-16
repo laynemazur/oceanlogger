@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../database/Backend.dart';
 
 class Register extends StatelessWidget{
+  static TextEditingController emailController = TextEditingController();
   static TextEditingController loginController = TextEditingController();
   static TextEditingController passwordController = TextEditingController();
   //TextEditingController takes user input from specified TextField
@@ -11,7 +12,23 @@ class Register extends StatelessWidget{
 
     return Column(
       children: <Widget>[
-
+        Container(
+          //login design/textbox
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: Colors.grey),
+              )
+          ),
+          child: TextField(
+            controller: emailController,
+            decoration: InputDecoration(
+                hintText: "email",
+                hintStyle: TextStyle(color: Colors.grey),
+                border: InputBorder.none
+            ),
+          ),
+        ),
         Container(
           //login design/textbox
           padding: const EdgeInsets.all(10),
@@ -23,7 +40,7 @@ class Register extends StatelessWidget{
           child: TextField(
             controller: loginController,
             decoration: InputDecoration(
-                hintText: "test",
+                hintText: "username",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none
             ),
@@ -40,7 +57,7 @@ class Register extends StatelessWidget{
           child: TextField(
             controller: passwordController,
             decoration: InputDecoration(
-                hintText: "test",
+                hintText: "password",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none
             ),
@@ -48,5 +65,11 @@ class Register extends StatelessWidget{
         ),
       ],
     );
+  }
+
+  static Future<String> regUser() {
+
+    //Validate user with login API from NodeJS
+    return ConnectBackend.registerUser(emailController.text,loginController.text, passwordController.text);
   }
 }
