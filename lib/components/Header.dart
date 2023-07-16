@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //General header, this can be deleted/altered if need be
 class Header extends StatelessWidget{
-  const Header({super.key});
+  Header({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,11 @@ class Header extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Center(
-            child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 40),),
+            child: Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 40),),
           ),
           SizedBox(height: 10,),
           Center(
-            child: Text("Your place for Ocean Logs", style: TextStyle(color: Colors.white, fontSize: 18),),
+            child: Text("Your place for Scuba Logs", style: TextStyle(color: Colors.white, fontSize: 18),),
           )
         ],
       ),
