@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import '../buttons/LoginButton.dart';
-import '../buttons/SignUpButton.dart';
-import '../buttons/ForgotButton.dart';
-import 'Login.dart';
+import '../buttons/ResetButton.dart';
+import 'Forgot.dart';
 
-//Design for LoginPage, calls Login which performs actions on this page
-class LoginWrapper extends StatelessWidget {
-  const LoginWrapper({super.key});
+//Design for ForgotPage, calls Forgot which performs actions on this page
+class ForgotWrapper extends StatelessWidget {
+  const ForgotWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +21,10 @@ class LoginWrapper extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
               ),
-              child: Login(), //Contains info for user login, password
+              child: Forgot(), //Contains info for user login, password
             ),
             const SizedBox(height: 40,),
-            LoginButton(),
-            const SizedBox(height: 40,),
-            SignUpButton(),
-            const SizedBox(height: 40,),
-            ForgotButton()
+            ResetButton()
           ],
         ),
       ),
