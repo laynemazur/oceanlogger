@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../pages/HomePage.dart';
 import '../components/Register.dart';
 
 class RegisterButton extends StatelessWidget {
@@ -11,19 +10,15 @@ class RegisterButton extends StatelessWidget {
       child: ElevatedButton(
         child: Text('Register'),
         onPressed: () async {
-          String ret = await Register.regUser();
-
-          if (ret == "") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          } else {
+          String inputError = await Register.regexTest();
+          if(inputError != "") {
+            //user did not provide correct format for email, username, or password.
+            //input error will tell them which part of the submission they got wrong.
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text('Error'),
-                content: Text(ret),
+                title: Text('Try Again.'),
+                content: Text(inputError),
                 actions: [
                   TextButton(
                     child: Text('OK'),
@@ -35,6 +30,45 @@ class RegisterButton extends StatelessWidget {
               ),
             );
           }
+          else {
+            //if user input is all valid, it will add user to DB here.
+            String ret = await Register.regUser();
+
+            if (ret == "") {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text('Account created! Please check your email.'),
+                  content: Text(inputError),
+                  actions: [
+                    TextButton(
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                      },
+                    ),
+                  ],
+                ),
+              );
+            } else {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text('Error'),
+                  content: Text(ret),
+                  actions: [
+                    TextButton(
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                      },
+                    ),
+                  ],
+                ),
+              );
+            }
+          }
+
         },
       ),
     );
