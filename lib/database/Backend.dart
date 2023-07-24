@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -30,7 +30,10 @@ class ConnectBackend  {
     // Parse the returned body.
     final retJsonObject = jsonDecode(response.body);
 
-    // print(retJsonObject);
+    //STORE access token, saved in shared_preferences to be accessed in other files
+    String jwt = retJsonObject['accessToken'];
+    saveJwtToSharedPreferences(jwt);
+
 
     // Returns an empty string for no error, or an error message string.
     String err = retJsonObject['error'];
@@ -105,6 +108,18 @@ class ConnectBackend  {
     String err = retJsonObject['error'];
 
     return err;
+  }
+
+  //SAVE jwt to storage
+  static Future<void> saveJwtToSharedPreferences(String jwt) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('jwt', jwt);
+  }
+
+  //GET jwt from storage
+  static Future<String?> getJwtFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('jwt');
   }
 
 }
