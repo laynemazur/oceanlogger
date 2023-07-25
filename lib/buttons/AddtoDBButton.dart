@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../pages/HomePage.dart';
+import '../components/AddLog.dart';
 
 class AddtoDBButton extends StatelessWidget {
   const AddtoDBButton({super.key});
@@ -10,11 +11,29 @@ class AddtoDBButton extends StatelessWidget {
       child: ElevatedButton(
         child: Text('Add'),
         onPressed: () async {
-          //NEED TO IMPLEMENT BACKEND HERE
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
+          String ret = await AddLog.addLog();
+          if (ret == "") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Error'),
+                content: Text(ret),
+                actions: [
+                  TextButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close the dialog
+                    },
+                  ),
+                ],
+              ),
+            );
+          }
         },
       ),
     );

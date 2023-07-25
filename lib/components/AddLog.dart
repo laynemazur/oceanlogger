@@ -224,4 +224,13 @@ class AddLog extends StatelessWidget{
     );
   }
 
+  static Future<String> addLog() {
+
+    //sends API call in backend to nodeJs, returns error if there is one and updates accesstoken.
+    return ConnectBackend.addDiveLog(diveSiteController.text,locationController.text,
+      dateController.text,timeController.text,maxDepthController.text,
+      tempController.text,visibilityController.text,startAirPressController.text,
+      endAirPressController.text,diveComputerController.text,notesController.text);
+  }
+
 }

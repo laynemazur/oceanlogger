@@ -96,12 +96,12 @@ class ConnectBackend  {
     // Make the API call.
     var response = await http.post(url, headers: headers, body: jsonObject);
 
-    print(response.statusCode);
-    print(response.body);
+    //print(response.statusCode);
+    //print(response.body);
     // Parse the returned body.
     final retJsonObject = jsonDecode(response.body);
 
-    print(retJsonObject);
+    //print(retJsonObject);
 
     // Returns an empty string for no error, or an error message string.
     //If there is an error, the email is not in the database.
@@ -109,6 +109,65 @@ class ConnectBackend  {
 
     return err;
   }
+
+  //addDiveLog
+  static Future<String> addDiveLog(String title, String location, String date,
+      String diveTime, String maxDepth, String temperature, String visibility,
+      String startAirPressure, String endAirPressure, String diveComputer, String notes) async {
+
+    // Create a URL to the API you want to access.
+    var url = Uri.https(
+        "oceanlogger-046c28329f84.herokuapp.com", "api/addlog");
+
+    //print(url);
+    // Header for the POST call.
+    Map<String, String> headers = {'Content-Type': 'application/json'};
+
+    //get saved accessToken for user.
+    String? accessToken = await getJwtFromSharedPreferences();
+
+    if (accessToken == null)
+    {
+      return "Invalid access token. Please sign in again.";
+    }
+
+    //decode jwt to get userid
+    Map<String, dynamic> decodedPayload = decodeJwt(accessToken);
+    String ud = decodedPayload['id'];
+
+    // Body for the POST call.
+    final jsonObject = jsonEncode(
+        {
+          "accessToken": accessToken,
+          "userid": ud,
+          "title": title,
+          "location": location,
+          "date": date,
+          "diveTime": diveTime,
+          "maxDepth": maxDepth,
+          "temperature": temperature,
+          "visibility": visibility,
+          "startAirPressure": startAirPressure,
+          "endAirPressure": endAirPressure,
+          "diveComputer": diveComputer,
+          "notes": notes,
+        }
+    );
+    //print(jsonObject);
+    // Make the API call.
+    var response = await http.post(url, headers: headers, body: jsonObject);
+
+    final retJsonObject = jsonDecode(response.body);
+
+    String err = retJsonObject['error'];
+
+    if(err == "") {
+      //update access token, only if add returns no error.
+      saveJwtToSharedPreferences(retJsonObject['accessToken']);
+    }
+    return err;
+  }
+
 
   //SAVE jwt to storage
   static Future<void> saveJwtToSharedPreferences(String jwt) async {
@@ -120,6 +179,21 @@ class ConnectBackend  {
   static Future<String?> getJwtFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('jwt');
+  }
+
+  //DECODE jwt
+  static Map<String, dynamic> decodeJwt(String token) {
+    List<String> parts = token.split('.');
+    if (parts.length != 3) {
+      throw Exception('Invalid JWT format. It must consist of three parts separated by dots.');
+    }
+
+    String payloadBase64 = parts[1];
+    String normalizedPayload = base64Url.normalize(payloadBase64);
+    String payloadJson = utf8.decode(base64Url.decode(normalizedPayload));
+
+    Map<String, dynamic> payloadMap = jsonDecode(payloadJson);
+    return payloadMap;
   }
 
 }
