@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../buttons/AddtoDBButton.dart';
+import '../buttons/CancelLogButton.dart';
 import 'AddLog.dart';
 
 //Design for RegisterPage, calls Register which performs actions on this page
@@ -22,6 +23,8 @@ class AddLogWrapper extends StatelessWidget {
             ),
             const SizedBox(height: 40,),
             AddtoDBButton(),
+            const SizedBox(height: 40,),
+            CancelLogButton(),
           ],
         ),
       ),
