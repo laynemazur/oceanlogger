@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../components/Header.dart';
-import '../components/HomePageWrapper.dart';
+import '../components/AddLogWrapper.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class AddLogPage extends StatelessWidget {
+  const AddLogPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                     topRight: Radius.circular(60),
                   )
               ),
-              child: HomePageWrapper(),
+              child: AddLogWrapper(),
             ))
           ],
         ),
