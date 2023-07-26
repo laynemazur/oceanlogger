@@ -10,7 +10,7 @@ class ConnectBackend  {
 
     // Create a URL to the API you want to access.
     var url = Uri.https("oceanlogger-046c28329f84.herokuapp.com", "api/login");
-    // print(url);
+    //print(url);
     // Header for the POST call.
     Map<String,String> headers = {'Content-Type': 'application/json'};
 
@@ -21,17 +21,23 @@ class ConnectBackend  {
           "password":password
         }
     );
-    // print(jsonObject);
+    //print(jsonObject);
     // Make the API call.
     var response = await http.post(url, headers:headers,body:jsonObject);
-
-    // print(response.statusCode);
-    // print(response.body);
+     //print(response.statusCode);
+     //print(response.body);
     // Parse the returned body.
     final retJsonObject = jsonDecode(response.body);
 
     //STORE access token, saved in shared_preferences to be accessed in other files
-    String jwt = retJsonObject['accessToken'];
+    String jwt = '';
+    try {
+       jwt = retJsonObject['accessToken'];
+    }
+    catch(e) {
+      print("AHHHHHHH");
+    }
+
     saveJwtToSharedPreferences(jwt);
 
 
