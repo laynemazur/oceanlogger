@@ -3,7 +3,7 @@ import '../buttons/AddtoDBButton.dart';
 import '../buttons/CancelLogButton.dart';
 import 'AddLog.dart';
 
-//Design for RegisterPage, calls Register which performs actions on this page
+//Design for AddLogPage
 class AddLogWrapper extends StatelessWidget {
   const AddLogWrapper({super.key});
 
