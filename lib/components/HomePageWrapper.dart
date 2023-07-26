@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../buttons/AddLogButton.dart';
+import '../buttons/DiveCalcButton.dart';
 
 //Design for LoginPage, calls Login which performs actions on this page
 class HomePageWrapper extends StatelessWidget {
@@ -12,7 +13,9 @@ class HomePageWrapper extends StatelessWidget {
         child: Column(
           children: <Widget>[
             const SizedBox(height: 40,),
-            AddLogButton()
+            AddLogButton(),
+            const SizedBox(height: 40,),
+            DiveCalcButton()
           ],
         ),
       ),
