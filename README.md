@@ -1,4 +1,4 @@
-# Oceanlogger
+# oceanlogger
 
 COP4331 Large Project Group 3
 
