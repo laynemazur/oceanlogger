@@ -6,18 +6,33 @@ class Header extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return  Padding(
       padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Center(
-            child: Text("Welcome", style: TextStyle(color: Colors.white, fontSize: 40),),
+            child: Image.asset("assets/images/006-shark-1.png",
+                width: 100 ),
+          ),
+          Center(
+            child: RichText(
+              text: const TextSpan(
+                text: 'Scuba',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'Logger',
+                      style: TextStyle(color: Color.fromRGBO(0,137,237,1))
+                  ),
+                ],
+              ),
+            ),
           ),
           SizedBox(height: 10,),
-          Center(
-            child: Text("Your place for Scuba Logs", style: TextStyle(color: Colors.white, fontSize: 18),),
-          )
         ],
       ),
     );
