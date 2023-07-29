@@ -13,18 +13,18 @@ class Forgot extends StatelessWidget{
 
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+
           ),
           child: TextField(
             controller: emailController,
             decoration: InputDecoration(
                 hintText: "email",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
