@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../components/Header.dart';
 import '../components/HomePageWrapper.dart';
+import '../components/TestPageWrapper.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  int _selectedIndex = 0; //New
 
   @override
   Widget build(BuildContext context) {
@@ -12,15 +15,13 @@ class HomePage extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-            Colors.cyan,
-            Colors.cyan,
-            Colors.cyan,
+            Colors.white,
+            Colors.white,
+            Colors.white,
           ]),
         ),
         child: Column(
           children: <Widget>[
-            const SizedBox(height: 80,),
-            Header(),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,
@@ -30,6 +31,7 @@ class HomePage extends StatelessWidget {
                   )
               ),
               child: HomePageWrapper(),
+              //child: TestPageWrapper(),
             ))
           ],
         ),
