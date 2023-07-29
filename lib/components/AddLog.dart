@@ -21,14 +21,17 @@ class AddLog extends StatelessWidget{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, //makes names left aligned
       children: <Widget>[
-        Text("*Name:",),
+
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("*Name:"),
+        ),
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+
           ),
 
           child: TextField(
@@ -36,187 +39,229 @@ class AddLog extends StatelessWidget{
             decoration: InputDecoration(
                 hintText: "Dive Site Name",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
-        Text("*Location:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("*Location:"),
+        ),
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+
           ),
           child: TextField(
             controller: locationController,
             decoration: InputDecoration(
                 hintText: "Country, City",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
-        Text("*Date:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("*Date:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: dateController,
             decoration: InputDecoration(
                 hintText: "08/08/0808",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
-        Text("Dive Time:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Dive Time:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: timeController,
             decoration: InputDecoration(
                 hintText: "Min.",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
-        Text("Maximum Depth:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Maximum Depth:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: maxDepthController,
             decoration: InputDecoration(
                 hintText: "Meters",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Temperature:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Temperature:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: tempController,
             decoration: InputDecoration(
                 hintText: "Fahrenheit",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Visibility:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Visibility:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: visibilityController,
             decoration: InputDecoration(
                 hintText: "Meters",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Starting Air Pressure:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Starting Air Pressure:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: startAirPressController,
             decoration: InputDecoration(
                 hintText: "Fahrenheit",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Ending Air Pressure:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Ending Air Pressure:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: endAirPressController,
             decoration: InputDecoration(
                 hintText: "Meters",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Dive Computer:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Dive Computer:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: diveComputerController,
             decoration: InputDecoration(
                 hintText: "Name",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Notes:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Notes:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: notesController,
             decoration: InputDecoration(
                 hintText: "Add notes...",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
