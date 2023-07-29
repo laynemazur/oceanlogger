@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../database/Backend.dart';
+import '../pages/ForgotPage.dart';
 
 class Login extends StatelessWidget{
   static TextEditingController loginController = TextEditingController();
@@ -14,35 +15,55 @@ class Login extends StatelessWidget{
 
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+
           ),
           child: TextField(
             controller: loginController,
             decoration: InputDecoration(
                 hintText: "username",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
             ),
           ),
         ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+
           ),
           child: TextField(
             controller: passwordController,
+            obscureText: true,
             decoration: InputDecoration(
                 hintText: "password",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                )
+            ),
+          ),
+        ),
+        Container(
+          alignment: Alignment.centerRight,
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+          child: GestureDetector(
+            onTap: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ForgotPage()))
+            },
+            child: const Text(
+              "Forgot your password?",
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
             ),
           ),
         ),
