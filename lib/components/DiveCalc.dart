@@ -15,14 +15,16 @@ class DiveCalc extends StatelessWidget{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, //makes names left aligned
       children: <Widget>[
-        Text("Depth of First Dive:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Depth of First Dive:"),
+        ),
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+
           ),
 
           child: TextField(
@@ -30,79 +32,97 @@ class DiveCalc extends StatelessWidget{
             decoration: InputDecoration(
                 hintText: "ft",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Total Time of First Dive:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Total Time of First Dive:"),
+        ),
         Container(
           //login design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: Colors.grey),
-              )
+              
           ),
           child: TextField(
             controller: firstTotalTimeController,
             decoration: InputDecoration(
                 hintText: "Mins",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Length of Surface Interval Hours:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Length of Surface Interval Hours:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+              
           ),
           child: TextField(
             controller: lenSurfaceIntervalHoursController,
             decoration: InputDecoration(
                 hintText: "Hrs",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Length of Surface Interval Minutes:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Length of Surface Interval Minutes:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+              
           ),
           child: TextField(
             controller: lenSurfaceIntervalMinsControler,
             decoration: InputDecoration(
                 hintText: "Mins",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
-        Text("Depth of Second Dive:",),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 40),
+          alignment: Alignment.centerLeft,
+          child: Text("Depth of Second Dive:"),
+        ),
         Container(
           //password design/textbox
-          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           decoration: const BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: Colors.grey)
-              )
+              
           ),
           child: TextField(
             controller: secondDiveController,
             decoration: InputDecoration(
                 hintText: "ft",
                 hintStyle: TextStyle(color: Colors.grey),
-                border: InputBorder.none
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10)
+                )
             ),
           ),
         ),
