@@ -12,15 +12,16 @@ class LoginPage extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-            Colors.cyan,
-            Colors.cyan,
-            Colors.cyan,
+            Colors.white,
+            Colors.white,
+            Colors.white,
           ]),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 80,),
-            Header(),
+            //Header(),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,
@@ -29,6 +30,7 @@ class LoginPage extends StatelessWidget {
                     topRight: Radius.circular(60),
                   )
               ),
+              //child: Image.asset("assets/images/006-shark-1.png"),
               child: LoginWrapper(),
             ))
           ],
