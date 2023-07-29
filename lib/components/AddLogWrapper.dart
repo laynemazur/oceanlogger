@@ -15,6 +15,17 @@ class AddLogWrapper extends StatelessWidget {
           children: <Widget>[
             const SizedBox(height: 40,),
             Container(
+              child: const Text(
+                "Add Log",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 40),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            const SizedBox(height: 40,),
+            Container(
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
@@ -22,9 +33,15 @@ class AddLogWrapper extends StatelessWidget {
               child: AddLog(), //Contains info for user to input sign up
             ),
             const SizedBox(height: 40,),
-            AddtoDBButton(),
-            const SizedBox(height: 40,),
-            CancelLogButton(),
+
+            const ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                CancelLogButton(),
+                SizedBox(width: 5),
+                AddtoDBButton(),
+              ],
+            ),
           ],
         ),
       ),
