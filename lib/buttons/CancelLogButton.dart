@@ -7,15 +7,25 @@ class CancelLogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ElevatedButton(
-        child: Text('Cancel'),
-        onPressed: () async {
-          //NEED TO IMPLEMENT BACKEND HERE
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        },
+      child: SizedBox(
+        width: 140,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              backgroundColor: Colors.black,
+
+          ),
+          child: Text('Cancel'),
+          onPressed: () async {
+            //NEED TO IMPLEMENT BACKEND HERE
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
       ),
     );
   }
