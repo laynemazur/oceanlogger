@@ -24,15 +24,15 @@ class ConnectBackend  {
     //print(jsonObject);
     // Make the API call.
     var response = await http.post(url, headers:headers,body:jsonObject);
-     //print(response.statusCode);
-     //print(response.body);
+    //print(response.statusCode);
+    //print(response.body);
     // Parse the returned body.
     final retJsonObject = jsonDecode(response.body);
 
     //STORE access token, saved in shared_preferences to be accessed in other files
     String jwt = '';
     try {
-       jwt = retJsonObject['accessToken'];
+      jwt = retJsonObject['accessToken'];
     }
     catch(e) {
       print("AHHHHHHH");
@@ -172,6 +172,60 @@ class ConnectBackend  {
       saveJwtToSharedPreferences(retJsonObject['accessToken']);
     }
     return err;
+  }
+
+  // searchDiveLog
+  static Future<dynamic> searchDiveLog(String title, String location, String startDate,
+      String endDate) async {
+
+    // Create a URL to the API you want to access.
+    var url = Uri.https(
+        "oceanlogger-046c28329f84.herokuapp.com", "api/searchlog");
+
+    // Header for the POST call.
+    Map<String, String> headers = {'Content-Type': 'application/json'};
+
+    //get saved accessToken for user.
+    String? accessToken = await getJwtFromSharedPreferences();
+
+    if (accessToken == null)
+    {
+      return "Invalid access token. Please sign in again.";
+    }
+
+    //decode jwt to get userid
+    Map<String, dynamic> decodedPayload = decodeJwt(accessToken);
+    String ud = decodedPayload['id'];
+
+    // Body for the POST call.
+    final jsonObject = jsonEncode(
+        {
+          "accessToken": accessToken,
+          "userid": ud,
+          "title": title,
+          "location": location,
+          "startDate":startDate,
+          "endDate":endDate
+        }
+    );
+
+    // Make the API call.
+    var response = await http.post(url, headers: headers, body: jsonObject);
+
+    final retJsonObject = jsonDecode(response.body);
+
+    String err = retJsonObject['error'];
+
+    if (err != "")
+    {
+      return err;
+    }
+
+    saveJwtToSharedPreferences(retJsonObject['accessToken']);
+
+    var temp = retJsonObject['result'];
+
+    return temp;
   }
 
 
