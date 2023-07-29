@@ -15,12 +15,17 @@ class HomePageWrapper extends StatefulWidget {
 class _HomePageWrapper extends State<HomePageWrapper> {
   int _selectedIndex = 1;
 
+  // these tell navbar where to go when tapped
   static const List<Widget> _pages = <Widget>[
     AddLogPage(),
     // where list of logs will be
-    Icon(
-      Icons.home,
-      size: 150,
+    // moved here from body center
+    SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          DisplayData()
+        ],
+      ),
     ),
     DiveCalcPage(),
     // Icon(
@@ -44,16 +49,9 @@ class _HomePageWrapper extends State<HomePageWrapper> {
       //title: const Text('ScubaLogger'),
       //),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              // ADD A WIDGET TO SEARCH THROUGH THE LOGS HERE!
-
-              // THIS DISPLAYS ALL OF THE LOGS.
-              DisplayData()
-            ],
-          ),
-        ),
+        // reverted changes, and moved above into _HomePageWrapper
+        // class
+        child: _pages.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -80,8 +78,6 @@ class _HomePageWrapper extends State<HomePageWrapper> {
     );
   }
 }
-
-
 
 // Call DisplayData() to display all the logs.
 class DisplayData extends StatefulWidget {
