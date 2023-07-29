@@ -12,15 +12,15 @@ class RegisterPage extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-            Colors.cyan,
-            Colors.cyan,
-            Colors.cyan,
+            Colors.white,
+            Colors.white,
+            Colors.white,
           ]),
         ),
         child: Column(
           children: <Widget>[
             const SizedBox(height: 80,),
-            Header(), //not working atm
+            //Header(), //not working atm
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,
