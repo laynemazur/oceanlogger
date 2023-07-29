@@ -9,18 +9,8 @@ class AddLogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-            Colors.cyan,
-            Colors.cyan,
-            Colors.cyan,
-          ]),
-        ),
         child: Column(
           children: <Widget>[
-            const SizedBox(height: 80,),
-            Header(),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,
