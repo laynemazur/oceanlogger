@@ -26,7 +26,7 @@ class ViewLogPage extends StatelessWidget {
                  taps += 1;
 
                  return (taps >= 10 ?
-                 AlertDialog(title: const Text("Here's Sharky!"), content: Image.asset('assets/images/shark.png')) :
+                 AlertDialog(title: const Text("Here's a throwback to our mascot from an old project!"), content: Image.asset('assets/images/shark.png')) :
                  const AlertDialog(title: Text("This doesn't do anything."),));
                }
               )
