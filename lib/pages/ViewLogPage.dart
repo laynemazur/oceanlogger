@@ -7,8 +7,6 @@ class ViewLogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int taps = 0;
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -16,25 +14,6 @@ class ViewLogPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
           iconSize: 50,
         ),
-        actions: [
-          IconButton(
-            icon: Image.asset('assets/images/edit.png'),
-            onPressed: () => {
-              showDialog(
-               context: context,
-               builder: (BuildContext context) {
-                 taps += 1;
-
-                 return (taps >= 10 ?
-                 AlertDialog(title: const Text("Here's a throwback to our mascot from an old project!"), content: Image.asset('assets/images/shark.png')) :
-                 const AlertDialog(title: Text("This doesn't do anything."),));
-               }
-              )
-            },
-            iconSize: 50,
-          ),
-          // const SizedBox(height: 25, width: 25,),
-        ],
         leadingWidth: 65,
         centerTitle: true,
         elevation: 0,
