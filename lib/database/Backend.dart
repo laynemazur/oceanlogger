@@ -35,7 +35,7 @@ class ConnectBackend  {
       jwt = retJsonObject['accessToken'];
     }
     catch(e) {
-      print("AHHHHHHH");
+      print("Access token could not be stored.");
     }
 
     saveJwtToSharedPreferences(jwt);
